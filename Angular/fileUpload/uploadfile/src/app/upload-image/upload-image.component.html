@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-2">
+      <div class="card-panel teal lighten-2">
+        <h4 class="center white-text">Image Library</h4>
+      </div>
+      <div *ngIf="fileUpload.status==='error'">
+        <div [innerHTML]="fileUpload.message"></div>
+      </div>
+      <div *ngIf="fileUpload.status==='progress'">
+        <div class="progress" style="height:50px;margin-bottom: 50px;width:200px">
+          <div class="progress-bar" role="progressbar" [style.width.%]="fileUpload.message"
+          aria-valuenow="100" aria-valuemin="100" aria-valuemax="100">{{fileUpload.message}}%</div>
+        </div>
+      </div>
+      <form #imageForm=ngForm (ngSubmit)="OnSubmit(Caption,Image)">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+            <label for="Caption">Caption</label>
+          </div>
+        </div>
+        <img [src]="imageUrl"  style="width:250px;height:200px">
+        <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+        <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
+      </form>
+      <div *ngIf="fileUpload.status === 'success'">
+        <img [src]="fileUpload.filePath" height="200px"/>
+      </div>
+      <p>{{ error }}</p>
+    </div>
+  </div>
+</div>

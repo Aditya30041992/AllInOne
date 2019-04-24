@@ -1,0 +1,102 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" class="layout-wrapper">
+  <div fxFlex="100%" fxFlex.lt-md="100%" class="flex-wrapper">
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div>
+        <a routerLink="/home">Home</a>
+      </div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout="row" fxLayoutGap="15px" class="navigation-items">
+          
+          <li>
+            <a [routerLink]="['/owner/owners']">Training List</a>
+          </li>
+          <!-- <li>
+            <a routerLink="/">Account Actions</a>
+          </li> -->
+        </ul>
+      </div>
+    </mat-toolbar>
+    <section fxLayout="column wrap">
+      <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+        <mat-tab label="Meetings"> 
+          <mat-toolbar>
+            <span> Upcoming Meetings </span>
+            <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+              <mat-card-actions>
+                <button mat-raised-button (click)="onNewMeetingButtonClicked()" class="ml-4 mt-3" color="primary">New Meeting</button>
+              </mat-card-actions>
+            </div>
+          </mat-toolbar>
+          <mat-card class="my-card">
+            <mat-card-content fxFlex fxLayout="row" fxLayoutAlign="end center">
+              <!-- PUT YOUR LIST CAODE HERE -->
+              <table class="table table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Meeting Name</th>
+                    <th scope="col">Organiser Name</th>
+                    <th scope="col">Attendee list</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Room Name</th>
+                    <th scope="col">Buttons</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr>
+                    <td>Media-artists</td>
+                    <td>Ritesh</td>
+                    <td>Ajay,Dinesh,Ketan</td>
+                    <td>01/03/2019</td>
+                    <td>11.00AM</td>
+                    <td>01.00PM</td>
+                    <td>Drenthe</td> 
+                    <td>
+                      <mat-card-actions>
+                        <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                        <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                      </mat-card-actions></td> 
+                    </tr>
+                    <tr>
+                      <td>BAS-APP</td>
+                      <td>Pankaj</td>
+                      <td>Ajay,Dinesh,Ketan</td>
+                      <td>02/03/2019</td>
+                      <td>11.00AM</td>
+                      <td>01.00PM</td>
+                      <td>Flevoland</td> 
+                      <td>
+                        <mat-card-actions>
+                          <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                          <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                        </mat-card-actions></td> 
+                      </tr>
+                      <tr>
+                        <td>PHP Devs</td>
+                        <td>Kapil</td>
+                        <td>Ajay,Dinesh,Ketan</td>
+                        <td>03/03/2019</td>
+                        <td>11.00AM</td>
+                        <td>01.00PM</td>
+                        <td>Gelderland</td> 
+                        <td>
+                          <mat-card-actions>
+                            <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                            <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                          </mat-card-actions></td> 
+                        </tr>
+                      </tbody>       
+                    </table>
+                  </mat-card-content>
+                </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </section>
+        </div>
+      </div>

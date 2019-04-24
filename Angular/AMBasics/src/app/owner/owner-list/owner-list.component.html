@@ -1,0 +1,91 @@
+<application-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+      <!--this is a place for us to add side-nav code-->
+      <application-sidenav-list (sidenavClose)="sidenav.close()"></application-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!--in here all the content must reside. We will add a navigation header as well-->
+      <application-header (sidenavToggle)="sidenav.toggle()"></application-header>
+      <section fxLayout="column wrap">
+        <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+          <mat-tab label="Trainings"> 
+            <mat-toolbar>
+              <span>  Upcoming Trainings </span>
+              <div fxFlex fxLayout="row" fxLayoutAlign="end center">
+                <mat-card-actions>
+                  <button mat-raised-button (click)="onNewButtonClicked()" class="ml-5 mt-3" color="primary">New Training</button>
+                </mat-card-actions>
+              </div>
+            </mat-toolbar>
+            <mat-card class="my-card">
+              <mat-card-content fxFlex fxLayout="row" fxLayoutAlign="end center">
+                <!-- PUT YOUR LIST CAODE HERE -->
+                <!-- <h6 class="text-center">Upcoming Trainings</h6><br/> -->
+                <table class="table table-striped">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Topic Name</th>
+                      <th scope="col">Trainer Name</th>
+                      <th scope="col">Date</th>
+                      <th scope="col"> Start Time</th>
+                      <th scope="col"> End Time</th>
+                      <th scope="col">Room Name</th>
+                      <th scope="col">Buttons</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr>
+                      <td>Javascript</td>
+                      <td>Pramod</td>
+                      <td>01/03/2019</td>
+                      <td>11.00AM </td>
+                      <td>01.00PM</td>
+                      <td>Gelderland</td> 
+                      <td>
+                        <mat-card-actions>
+                          <button mat-raised-button (click)="onRegisterButtonClicked()" color="primary">RSVP</button>
+                          <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                          <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                        </mat-card-actions></td> 
+                      </tr>
+                      <tr>
+                          <td>PHP</td>
+                          <td>Kapil</td>
+                          <td>02/03/2019</td>
+                          <td>11.00AM </td>
+                          <td>01.00PM</td>
+                          <td>Flevoland</td> 
+                        <td>
+                          <mat-card-actions>
+                            <button mat-raised-button (click)="onRegisterButtonClicked()" color="primary">RSVP</button>
+                            <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                            <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                          </mat-card-actions></td> 
+                        </tr>
+                        <tr>
+                            <td>MS.NET</td>
+                            <td>Nizam</td>
+                            <td>03/03/2019</td>
+                            <td>11.00AM </td>
+                            <td>01.00PM</td>
+                            <td>Drenthe</td> 
+                          <td>
+                            <mat-card-actions>
+                              <button mat-raised-button (click)="onRegisterButtonClicked()" color="primary">RSVP</button>
+                              <button class="ml-3" mat-raised-button (click)="onEditButtonClicked()" color="primary">EDIT</button>
+                              <button mat-raised-button (click)="onDetailsButtonClicked()" color="accent">DETAILS</button>
+                            </mat-card-actions></td> 
+                          </tr>
+                        </tbody>       
+                      </table>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-tab>
+              </mat-tab-group>
+            </section>
+            
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </application-layout>
+      

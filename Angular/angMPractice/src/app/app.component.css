@@ -1,0 +1,18 @@
+.card-container {
+ 
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; 
+    width: 500px; */
+  }
+  .h1{
+    text-align: center;
+  }
+  
+  /* .card-container div:last-child {
+    text-align: right;
+  }
+  
+  .card-container div {
+    flex: 1 1 auto;
+  } */

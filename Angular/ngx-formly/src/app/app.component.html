@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <div class="d-flex justify-content-center ">
+    <div class="card">
+      <h3 class="card-header">Registration Form</h3>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+          <button type="submit" class="btn btn-primary submit-button mt-4" [disabled]="!form.valid">Submit</button>
+          <button type="button" class="btn btn-info ml-2 mt-4" (click)="options.resetModel()">Reset</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+{{model | json}}
